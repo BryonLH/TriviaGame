@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row header">
+            <div class="col-md-12 text-center">
                 Trivia Game
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                
+            <div class="col-md-12 text-center">
+                <div id="timer-section">time left</div>
+                <div id="question-section"></div>
+                <div id="new-game-button">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="new-game">Start Trivia</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div id="answers-section"></div>
             </div>
         </div>
     </div>
-    
+    <script type="text/javascript" src="./assets/javascript/app.js"></script>
 </body>
+
 </html>
