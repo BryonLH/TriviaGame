@@ -60,23 +60,26 @@ $(document).ready(function () {
         console.log(gameActive);
         $("#new-game-button").empty();
         $("#question-section").html(questionsArray[currentQuestionId-1].question);
-        // for (var i = 0; i < questionsArray[currentQuestionId-1].answers; i++) {
-        //     console.log(questionsArray[currentQuestionId-1].answers[i])
-        // }
 
         questionsArray[currentQuestionId-1].answers.forEach(function (char) {
             console.log(char)
-            $("#answers-section").append("<div><button type='button' class='btn btn-primary btn-lg btn-block' id='new-game'>" + 
+            $("#answers-section").append("<div><button type='button' class='btn btn-primary btn-lg btn-block' id='answer-button' value = " + char + ">" + 
             char + "</button></div>");
-        })
-        // var answerOptions = 
-        // console.log(questionsArray[currentQuestionId-1].answers);
-        // $("#answers-section").html(questionsArray[currentQuestionId-1].answers);
-        
-        // $("#question-section").html()
+            // $("#answers-section").append(char).attr({
+            //     "type": "button", 
+            //     "class": "btn btn-primary btn-lg btn-block", 
+            //     "id": "answer-button", 
+            //     "value": char});
+        });
+        // If clicked button value = correct answer, then user moves on
+        if ($("#answer-button").on("click")) {
+
+        }
     });
 
-    //start timer
+    
+
+
     
 
 });
