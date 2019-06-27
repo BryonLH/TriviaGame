@@ -60,9 +60,18 @@ $(document).ready(function () {
         console.log(gameActive);
         $("#new-game-button").empty();
         $("#question-section").html(questionsArray[currentQuestionId-1].question);
-        for (var i = 0; i < nameArr.length; i++) {
-            console.log(nameArr[i])
-        }
+        // for (var i = 0; i < questionsArray[currentQuestionId-1].answers; i++) {
+        //     console.log(questionsArray[currentQuestionId-1].answers[i])
+        // }
+
+        questionsArray[currentQuestionId-1].answers.forEach(function (char) {
+            console.log(char)
+            $("#answers-section").append("<div><button type='button' class='btn btn-primary btn-lg btn-block' id='new-game'>" + 
+            char + "</button></div>");
+        })
+        // var answerOptions = 
+        // console.log(questionsArray[currentQuestionId-1].answers);
+        // $("#answers-section").html(questionsArray[currentQuestionId-1].answers);
         
         // $("#question-section").html()
     });
