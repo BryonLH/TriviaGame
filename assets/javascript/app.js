@@ -4,7 +4,7 @@ var questionsArray = [
         questionId: "1",
         question: "Which character uses the quote 'Great Scott!'?",
         answers: ["Marty McFly", "Doc Holiday", "Dr. Emmett Brown", "Biff Tannen"],
-        correctAnswer: "Doc Brown",
+        correctAnswer: "Dr. Emmett Brown",
     },
     {
         questionId: "2",
@@ -45,6 +45,15 @@ console.log("hello");
 
 console.log(JSON.stringify(questionsArray));
 
+nextQuestion = function() {
+    $("#question-section").html(questionsArray[currentQuestionId - 1].question);
+
+    questionsArray[currentQuestionId - 1].answers.forEach(function (char) {
+        console.log(char)
+        $("#answers-section").append("<div><input type='button' class='btn btn-primary btn-lg btn-block answer-button' id='answer-button' value = '" + char + "'/></div>");
+    });
+};
+
 
 // newGame = function(event) {
 //     $("#new-game-button").remove();
@@ -52,19 +61,18 @@ console.log(JSON.stringify(questionsArray));
 //     console.log(gameActive);
 //     console.log("you clicked it");
 // }
-console.log(questionsArray[currentQuestionId-1].question);
+console.log(questionsArray[currentQuestionId - 1].question);
 //start the game upon button press
 $(document).ready(function () {
     $("#new-game").on("click", function () {
         gameActive = true;
         console.log(gameActive);
         $("#new-game-button").empty();
-        $("#question-section").html(questionsArray[currentQuestionId-1].question);
+        $("#question-section").html(questionsArray[currentQuestionId - 1].question);
 
-        questionsArray[currentQuestionId-1].answers.forEach(function (char) {
+        questionsArray[currentQuestionId - 1].answers.forEach(function (char) {
             console.log(char)
-            $("#answers-section").append("<div><button type='button' class='btn btn-primary btn-lg btn-block' id='answer-button' value = " + char + ">" + 
-            char + "</button></div>");
+            $("#answers-section").append("<div><input type='button' class='btn btn-primary btn-lg btn-block answer-button' id='answer-button' value = '" + char + "'/></div>");
             // $("#answers-section").append(char).attr({
             //     "type": "button", 
             //     "class": "btn btn-primary btn-lg btn-block", 
@@ -72,21 +80,38 @@ $(document).ready(function () {
             //     "value": char});
         });
         // If clicked button value = correct answer, then user moves on
-        if ($("#answer-button").on("click")) {
+        console.log(questionsArray[currentQuestionId - 1].correctAnswer);
+        $(".answer-button").on("click", function (event) {
+            if (event.currentTarget.defaultValue === questionsArray[currentQuestionId - 1].correctAnswer) {
+            //     // you won function
+                correctGuesses++;
+                console.log("correct guesses:" + correctGuesses);
+                currentQuestionId++;
+                nextQuestion();
+                $("#answers-section").empty();
+            } else {
+                incorrectGuesses++;
+            //     // you lose function
+                console.log("incorrect guesses:" + incorrectGuesses);
+                currentQuestionId++;
+                nextQuestion();
+                $("#answers-section").empty();
+            }
+            
+            // console.log("correct guesses:" + correctGuesses);
+            // console.log("incorrect guesses:" + incorrectGuesses);
+            
+        });
 
-        }
     });
 
-    
 
 
-    
+
 
 });
 
-// var currentQuestion = $.map(questionsArray, function(val) {
-//     return val.questionId =="1" ? val.foo : null;
-//     console.log(currentQuestion);
+
 
 // if (gameActive === false) {
 //     //display button to start game
