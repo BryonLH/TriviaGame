@@ -112,7 +112,7 @@ $(document).ready(function() {
     
 });
 
-checkAnswer = function() {
+checkAnswer = function(event) {
     if (event.currentTarget.defaultValue === questionsArray[currentQuestionId - 1].correctAnswer) {
         //     // you won function
             correctGuesses++;
